@@ -8,6 +8,7 @@
 *.iml
 
 
+
 # Gradle:
 .idea/gradle.xml
 .idea/libraries
@@ -29,4 +30,8 @@ gradle-app.setting
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
+
+# Stuff for this specific project
+webmd_analysis.*.groovy
+
 

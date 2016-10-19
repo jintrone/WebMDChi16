@@ -100,45 +100,7 @@ class JGraphTUtils {
         graph.getEdgeSource(edge) == node ? graph.getEdgeTarget(edge) : graph.getEdgeSource(edge)
     }
 
-    static writeGraphML(File f, final SimpleWeightedGraph<AttributeVertex, AttributeEdge> graph) {
 
-        MyGraphMLExporter<AttributeVertex, AttributeEdge> exporter = new MyGraphMLExporter<>(
-                new VertexNameProvider<AttributeVertex>() {
-
-                    @Override
-                    String getVertexName(AttributeVertex vertex) {
-                        vertex.id
-                    }
-                }, null, new IntegerEdgeNameProvider<AttributeEdge>(), null,
-                new EdgeWeightProvider<AttributeEdge>() {
-                    @Override
-                    float getEdgeWeight(AttributeEdge edge) {
-                        graph.getEdgeWeight(edge)
-                    }
-                }, new MyGraphMLExporter.AttributeProvider() {
-            @Override
-            MyGraphMLExporter.AttributeType getType() {
-                MyGraphMLExporter.AttributeType.VERTEX
-            }
-
-            @Override
-            String getName() {
-                return "type"
-            }
-
-            @Override
-            String getDataType() {
-                return "string"
-            }
-
-            @Override
-            String getValue(Object obj) {
-                return ((AttributeVertex) obj).getAttributeValue("type")
-            }
-        }
-        )
-        exporter.export(new FileWriter(f),graph)
-    }
 
     static SimpleDirectedWeightedGraph<AttributeVertex,AttributeEdge> createRandomWeightedGraph(int nodecount, double density) {
         SimpleDirectedWeightedGraph<AttributeVertex,AttributeEdge> graph = new SimpleDirectedWeightedGraph<AttributeVertex,AttributeEdge>(AttributeEdge.class) {
