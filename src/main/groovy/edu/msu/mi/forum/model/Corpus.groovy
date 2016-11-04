@@ -26,4 +26,6 @@ interface Corpus {
      */
     public Iterable<Post> getRepliesByFirstPoster();
 
+    public Set<String> getPosters()
+
 }
